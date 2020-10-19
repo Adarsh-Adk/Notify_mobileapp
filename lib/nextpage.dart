@@ -4,8 +4,7 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
-
-import 'main.dart';
+import 'FrontPageBody.dart';
 
 
 class NextPage extends StatefulWidget {
