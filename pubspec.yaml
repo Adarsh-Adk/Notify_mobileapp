@@ -32,8 +32,8 @@ dependencies:
   flutter_html: ^1.0.2
   http:
   html:
-  cached_network_image: ^2.3.1
   fluttertoast: ^7.1.1
+
 
 
 dev_dependencies:

@@ -5,7 +5,6 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:notify_categories/Components/DefaultAppBar.dart';
 import 'package:notify_categories/Components/DefaultDrawer.dart';
 
@@ -23,7 +22,7 @@ class Apps extends StatelessWidget {
         body: Container(
           color: Colors.grey[800],
           child: FutureBuilder(
-              future: fetchPhones(),
+              future: fetchPhones(url),
               builder: (context,snapshot){
                 if(snapshot.hasData){
                   return ListView.builder(
@@ -41,7 +40,7 @@ class Apps extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Container(
-                                  child:CachedNetworkImage(imageUrl: imageurl,placeholder: (context,url)=>Image.asset('assets/loading.gif'),fit: BoxFit.fill,),
+                                  child:Image(image: NetworkImage(imageurl),),
                                   height: 260,
                                   width: 405,
                                 ),
@@ -98,7 +97,7 @@ class Apps extends StatelessWidget {
 
 }
 
-Future<List> fetchPhones()async{
+Future<List> fetchPhones(url)async{
   final response=await http.get(url,headers: {"accept": "application/json"});
   var convertDataToJson=jsonDecode(response.body);
   return convertDataToJson;

@@ -5,7 +5,6 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 
 class FrontPageBody extends StatefulWidget {
@@ -32,61 +31,57 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                       itemBuilder: (BuildContext context, int index) {
                         Map wppost = snapshot.data[index];
                         var imageurl = wppost['jetpack_featured_media_url'];
-                        return RaisedButton(
-                          color: Colors.black,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                BorderRadius.all(Radius.circular(20.0))),
-                            color: Colors.grey[850],
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Container(
-                                  child:CachedNetworkImage(imageUrl: imageurl,placeholder: (context,url)=>Image.asset('assets/loading.gif'),fit: BoxFit.fill,),
-                                  height: 260,
-                                  width: 405,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 7, right: 7, top: 2),
-                                  child: Text(
-                                    parse(
-                                      (wppost['title']['rendered'])
-                                          .toString(),
-                                    ).documentElement.text,
-                                    style: TextStyle(
-                                        fontSize: 23,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey[400]),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 7, right: 7, top: 5),
-                                  child: Text(
-                                    parse(
-                                      (wppost['excerpt']['rendered'])
-                                          .toString(),
-                                    ).documentElement.text,
-                                    style: TextStyle(
-                                      color: Colors.grey[400],
-                                      fontSize: 15,
-                                    ),
-                                    textAlign: TextAlign.justify,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          onPressed: () {
+                        return GestureDetector(
+                          onTap: (){
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => SecondRoute(
                                       wppost['content']['rendered']),
-                                ));
-                          },
+                                ));},
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:10.0,right:10.0),
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                              color: Colors.grey[850],
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: Image(image: NetworkImage(imageurl,),)),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 7, right: 7, top: 2),
+                                    child: Text(
+                                      parse(
+                                        (wppost['title']['rendered'])
+                                            .toString(),
+                                      ).documentElement.text,
+                                      style: TextStyle(
+                                          fontSize: 23,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey[400]),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 7, right: 7, top: 5),
+                                    child: Text(
+                                      parse(
+                                        (wppost['excerpt']['rendered'])
+                                            .toString(),
+                                      ).documentElement.text,
+                                      style: TextStyle(
+                                        color: Colors.grey[400],
+                                        fontSize: 15,
+                                      ),
+                                      textAlign: TextAlign.justify,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         );
                       }),
                 );
@@ -128,6 +123,7 @@ class SecondRoute extends StatelessWidget {
       ),
       body: Container(
           color: Colors.grey[900],
+          padding: EdgeInsets.only(left: 10,right: 10),
           child: SingleChildScrollView(
             child: Html(
               data: _text,

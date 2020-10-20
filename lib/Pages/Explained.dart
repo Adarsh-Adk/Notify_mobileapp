@@ -5,7 +5,6 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:notify_categories/Components/DefaultAppBar.dart';
 import 'package:notify_categories/Components/DefaultDrawer.dart';
 
@@ -41,8 +40,7 @@ class Explained extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Container(
-                                  child:CachedNetworkImage(imageUrl: imageurl,placeholder: (context,url)=>Image.asset('assets/loading.gif'),fit: BoxFit.fill,),
-                                  height: 260,
+                                  child:Image(image: NetworkImage(imageurl),), height: 260,
                                   width: 405,
                                 ),
                                 Padding(
