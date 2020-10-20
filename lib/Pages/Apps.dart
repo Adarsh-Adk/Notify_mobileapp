@@ -30,8 +30,14 @@ class Apps extends StatelessWidget {
                       itemBuilder: (BuildContext context,int index){
                         Map Posts =snapshot.data[index];
                         var imageurl=Posts['jetpack_featured_media_url'];
-                        return RaisedButton(
-                          color: Colors.black,
+                        return GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SecondRoute(
+                                      Posts['content']['rendered']),
+                                ));},
                           child: Card(
                             shape: RoundedRectangleBorder(
                                 borderRadius:
@@ -73,14 +79,6 @@ class Apps extends StatelessWidget {
                               ],
                             ),
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SecondRoute(
-                                      Posts['content']['rendered']),
-                                ));
-                          },
                         );
                       },
                       itemCount: snapshot.data.length);

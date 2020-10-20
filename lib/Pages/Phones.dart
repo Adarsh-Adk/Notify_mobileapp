@@ -29,10 +29,16 @@ class Phones extends StatelessWidget {
                   if(snapshot.hasData){
                     return ListView.builder(
                       itemBuilder: (BuildContext context,int index){
-                        Map PhonesPost =snapshot.data[index];
-                        var imageurl=PhonesPost['jetpack_featured_media_url'];
-                            return RaisedButton(
-                              color: Colors.black,
+                        Map Posts =snapshot.data[index];
+                        var imageurl=Posts['jetpack_featured_media_url'];
+                            return GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SecondRoute(
+                                          Posts['content']['rendered']),
+                                    ));},
                               child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius:
@@ -47,7 +53,7 @@ class Phones extends StatelessWidget {
                                           left: 7, right: 7, top: 2),
                                       child: Text(
                                         parse(
-                                          (PhonesPost['title']['rendered'])
+                                          (Posts['title']['rendered'])
                                               .toString(),
                                         ).documentElement.text,
                                         style: TextStyle(
@@ -61,7 +67,7 @@ class Phones extends StatelessWidget {
                                           left: 7, right: 7, top: 5),
                                       child: Text(
                                         parse(
-                                          (PhonesPost['excerpt']['rendered'])
+                                          (Posts['excerpt']['rendered'])
                                               .toString(),
                                         ).documentElement.text,
                                         style: TextStyle(
@@ -74,14 +80,6 @@ class Phones extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SecondRoute(
-                                          PhonesPost['content']['rendered']),
-                                    ));
-                              },
                             );
                       },
                       itemCount: snapshot.data.length);
