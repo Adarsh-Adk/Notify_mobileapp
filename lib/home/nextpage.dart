@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
@@ -55,7 +56,7 @@ class _NextPageState extends State<NextPage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: Image(image: NetworkImage(imageurl),)),
+                                    ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child:ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,),),
                                     Padding(
                                       padding: const EdgeInsets.only(
                                           left: 7, right: 7, top: 2),

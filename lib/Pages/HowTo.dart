@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/style.dart';
@@ -39,10 +40,7 @@ class HowTo extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Container(
-                                  child:Image(image: NetworkImage(imageurl),), height: 260,
-                                  width: 405,
-                                ),
+                                ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,),),
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       left: 7, right: 7, top: 2),

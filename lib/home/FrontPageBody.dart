@@ -5,6 +5,7 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:extended_image/extended_image.dart';
 
 
 class FrontPageBody extends StatefulWidget {
@@ -48,7 +49,7 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: Image(image: NetworkImage(imageurl,),)),
+                                  ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,),),
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         left: 7, right: 7, top: 2),
