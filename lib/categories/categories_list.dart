@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:notify_categories/Pages/Apps.dart';
-import 'package:notify_categories/Pages/Consoles.dart';
-import 'package:notify_categories/Pages/Explained.dart';
-import 'package:notify_categories/Pages/HowTo.dart';
-import 'package:notify_categories/Pages/Laptops.dart';
-import 'package:notify_categories/Pages/Peripherals.dart';
-import 'package:notify_categories/Pages/Phones.dart';
-import 'package:notify_categories/Pages/Processors.dart';
-import 'package:notify_categories/Pages/Tabs.dart';
-import 'package:notify_categories/Pages/Telecom.dart';
+import 'package:notify_categories/CategoryPages/Apps.dart';
+import 'package:notify_categories/CategoryPages/Consoles.dart';
+import 'package:notify_categories/CategoryPages/Explained.dart';
+import 'package:notify_categories/CategoryPages/HowTo.dart';
+import 'package:notify_categories/CategoryPages/Laptops.dart';
+import 'package:notify_categories/CategoryPages/Peripherals.dart';
+import 'package:notify_categories/CategoryPages/Phones.dart';
+import 'package:notify_categories/CategoryPages/Processors.dart';
+import 'package:notify_categories/CategoryPages/Tabs.dart';
+import 'package:notify_categories/CategoryPages/Telecom.dart';
 
 class CategoriesList extends StatelessWidget {
   @override
