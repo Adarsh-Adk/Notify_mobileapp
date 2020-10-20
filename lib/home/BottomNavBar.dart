@@ -13,15 +13,23 @@ class BottomNavBar extends StatelessWidget {
         backgroundColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-            icon: IconButton(icon: Icon(Icons.arrow_back_ios,color: Colors.grey,),
-              onPressed: null,
-            ),title:Text(
+            icon: IconButton(icon: Icon(Icons.arrow_back_ios,color: Colors.blue,),
+              onPressed: ()=> Fluttertoast.showToast(
+                  msg: "There is no previous page",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Colors.black,
+                  textColor: Colors.blue,
+                  fontSize: 16.0
+              )),
+            title:Text(
             "Previous page",
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: Colors.blue),
           ), ),
 
           BottomNavigationBarItem(
-            icon:IconButton(icon: Icon(Icons.arrow_forward_ios),color: Colors.black,
+            icon:IconButton(icon: Icon(Icons.arrow_forward_ios),color: Colors.blue,
               onPressed: () {
                 pageNumber=pageNumber+1;
                 Navigator.push(
@@ -33,7 +41,7 @@ class BottomNavBar extends StatelessWidget {
               },
             ),title: Text(
             "Next page",
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.blue),
 
           ),)]
 

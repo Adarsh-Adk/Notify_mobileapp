@@ -111,7 +111,7 @@ class _NextPageState extends State<NextPage> {
             icon: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.black,
+                  color: Colors.blue,
                 ),
                 onPressed: () {
                   setState(() {
@@ -126,14 +126,14 @@ class _NextPageState extends State<NextPage> {
                 }),
             title: Text(
               "Previous page",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.blue),
             ),
           ),
           BottomNavigationBarItem(
             icon: IconButton(
                 icon: Icon(
                   Icons.arrow_forward_ios,
-                  color: Colors.black,
+                  color: Colors.blue,
                 ),
                 onPressed: () {
                   print("pageNumber before:$pageNumber");
@@ -148,7 +148,7 @@ class _NextPageState extends State<NextPage> {
                 }),
             title: Text(
               "Next page",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.blue),
             ),
           ),
         ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notify_categories/Pages/AboutUs.dart';
+import 'package:notify_categories/Pages/SocialMedia.dart';
 
 import '../categories/Categories_Home.dart';
 
@@ -20,23 +22,23 @@ class DefaultDrawer extends StatelessWidget {
                     Card(elevation: 5,
                          child: ListTile(title: Text("Social media",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
                           Navigator.pop(context);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SocialMedia()));},
                          ),
                     ),
 
                     Card(elevation: 5,
                       child: ListTile(title: Text("About us",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
                         Navigator.pop(context);
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Aboutus()));},
                       ),
                     ),
 
-                    Card(elevation: 5,
-                      child: ListTile(title: Text("privacy policy",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
-                        Navigator.pop(context);
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},
-                      ),
-                    ),
+                    // Card(elevation: 5,
+                    //   child: ListTile(title: Text("privacy policy",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
+                    //     Navigator.pop(context);
+                    //     Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicy()));},
+                    //   ),
+                    // ),
         ],
       ),
     ),
