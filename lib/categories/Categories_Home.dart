@@ -11,7 +11,7 @@ class Categories extends StatelessWidget {
       home: Scaffold(
         drawer: DefaultDrawer(),
         appBar: DefaultAppBar(),
-        body: Container(color: Colors.grey[300],
+        body: Container(color: Colors.white,
           child: CategoriesList()
         ),
       ),

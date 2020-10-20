@@ -7,26 +7,36 @@ class DefaultDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
         child: Container(
-        color: Colors.black87,
+        color: Colors.white,
           child: ListView(
               children: [
-              DrawerHeader(child: Center(child: Text("Notify",style: TextStyle(color: Colors.white,fontSize: 30.0),)),decoration: BoxDecoration(color: Colors.black26),),
-                    Card(
-                        child: ListTile(title: Text("Categories",style: TextStyle(fontSize: 20),),onTap: (){
+              DrawerHeader(child: Center(child: Text("Notify",style: TextStyle(color: Colors.blue,fontSize: 30.0),)),decoration: BoxDecoration(color: Colors.white,),),
+                    Card(elevation: 5,
+                        child: ListTile(title: Text("Categories",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
                           Navigator.pop(context);
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},),),
-                    Card(
-                         child: ListTile(title: Text("Social media",style: TextStyle(fontSize: 20),),onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},
+                        ),
+                    ),
+                    Card(elevation: 5,
+                         child: ListTile(title: Text("Social media",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
                           Navigator.pop(context);
                           Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},
                          ),
-          ),
-                    Card(
-                      child: ListTile(title: Text("About us",style: TextStyle(fontSize: 20),),onTap: (){
+                    ),
+
+                    Card(elevation: 5,
+                      child: ListTile(title: Text("About us",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
                         Navigator.pop(context);
                         Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},
                       ),
-          ),
+                    ),
+
+                    Card(elevation: 5,
+                      child: ListTile(title: Text("privacy policy",style: TextStyle(fontSize: 20,color: Colors.blue),),onTap: (){
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));},
+                      ),
+                    ),
         ],
       ),
     ),

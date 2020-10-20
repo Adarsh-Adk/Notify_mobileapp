@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'FrontPageBody.dart';
 import '../main.dart';
@@ -9,7 +10,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         items: [
           BottomNavigationBarItem(
             icon: IconButton(icon: Icon(Icons.arrow_back_ios,color: Colors.grey,),
@@ -20,7 +21,7 @@ class BottomNavBar extends StatelessWidget {
           ), ),
 
           BottomNavigationBarItem(
-            icon:IconButton(icon: Icon(Icons.arrow_forward_ios),color: Colors.white,
+            icon:IconButton(icon: Icon(Icons.arrow_forward_ios),color: Colors.black,
               onPressed: () {
                 pageNumber=pageNumber+1;
                 Navigator.push(
@@ -32,7 +33,7 @@ class BottomNavBar extends StatelessWidget {
               },
             ),title: Text(
             "Next page",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black),
 
           ),)]
 

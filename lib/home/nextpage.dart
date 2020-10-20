@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
+import 'package:notify_categories/Components/DefaultAppBar.dart';
+import 'package:notify_categories/Components/DefaultDrawer.dart';
 import 'dart:convert';
 import 'FrontPageBody.dart';
 
@@ -19,10 +21,8 @@ class _NextPageState extends State<NextPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Notify"),
-        backgroundColor: Colors.black,
-      ),
+      drawer: DefaultDrawer(),
+      appBar: DefaultAppBar(),
       body: Column(
         children: [
           Container(
@@ -33,7 +33,7 @@ class _NextPageState extends State<NextPage> {
                   return Container(
                     height: MediaQuery.of(context).size.height - 158,
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.grey[800],
+                    color: Colors.white,
                     child: ListView.builder(
                         itemCount: snapshot.data.length,
                         itemBuilder: (BuildContext context, int index) {
@@ -52,7 +52,7 @@ class _NextPageState extends State<NextPage> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius:
                                     BorderRadius.all(Radius.circular(20.0))),
-                                color: Colors.grey[850],
+                                color: Colors.white,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
@@ -68,7 +68,7 @@ class _NextPageState extends State<NextPage> {
                                         style: TextStyle(
                                             fontSize: 23,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.grey[400]),
+                                            color: Colors.black),
                                       ),
                                     ),
                                     Padding(
@@ -80,7 +80,7 @@ class _NextPageState extends State<NextPage> {
                                               .toString(),
                                         ).documentElement.text,
                                         style: TextStyle(
-                                          color: Colors.grey[400],
+                                          color: Colors.black,
                                           fontSize: 15,
                                         ),
                                         textAlign: TextAlign.justify,
@@ -111,7 +111,7 @@ class _NextPageState extends State<NextPage> {
             icon: IconButton(
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 onPressed: () {
                   setState(() {
@@ -133,7 +133,7 @@ class _NextPageState extends State<NextPage> {
             icon: IconButton(
                 icon: Icon(
                   Icons.arrow_forward_ios,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 onPressed: () {
                   print("pageNumber before:$pageNumber");
@@ -152,7 +152,7 @@ class _NextPageState extends State<NextPage> {
             ),
           ),
         ],
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
       ),
     );
   }

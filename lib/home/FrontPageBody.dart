@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:notify_categories/Components/DefaultAppBar.dart';
+import 'package:notify_categories/Components/DefaultDrawer.dart';
 
 
 class FrontPageBody extends StatefulWidget {
@@ -26,7 +28,7 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                 return Container(
                   height: MediaQuery.of(context).size.height - 158,
                   width: MediaQuery.of(context).size.width,
-                  color: Colors.grey[800],
+                  color: Colors.white,
                   child: ListView.builder(
                       itemCount: snapshot.data.length,
                       itemBuilder: (BuildContext context, int index) {
@@ -41,11 +43,12 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                                       wppost['content']['rendered']),
                                 ));},
                           child: Padding(
-                            padding: const EdgeInsets.only(left:10.0,right:10.0),
+                            padding: const EdgeInsets.only(left:7.0,right:7.0,top: 7,bottom: 7),
                             child: Card(
+                              elevation: 10,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                              color: Colors.grey[850],
+                              color: Colors.white,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
@@ -61,7 +64,7 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                                       style: TextStyle(
                                           fontSize: 23,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.grey[400]),
+                                          color: Colors.black),
                                     ),
                                   ),
                                   Padding(
@@ -73,7 +76,7 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                                             .toString(),
                                       ).documentElement.text,
                                       style: TextStyle(
-                                        color: Colors.grey[400],
+                                        color: Colors.black,
                                         fontSize: 15,
                                       ),
                                       textAlign: TextAlign.justify,
@@ -90,6 +93,7 @@ class _FrontPageBodyState extends State<FrontPageBody> {
               return Container(
                   height: MediaQuery.of(context).size.height - 158,
                   width: MediaQuery.of(context).size.width,
+                  color: Colors.grey[200],
                   child: Center(
                     child: CircularProgressIndicator(),
                   ));
@@ -118,34 +122,32 @@ class SecondRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text("Notify"),
-      ),
+      drawer: DefaultDrawer(),
+      appBar: DefaultAppBar(),
       body: Container(
-          color: Colors.grey[900],
+          color: Colors.white,
           padding: EdgeInsets.only(left: 10,right: 10),
           child: SingleChildScrollView(
             child: Html(
               data: _text,
               style: {
-                "html": Style(backgroundColor: Colors.black12),
+                "html": Style(backgroundColor: Colors.white),
                 "h3": Style(
-                    color: Colors.grey[200],
+                    color: Colors.grey[800],
                     fontSize: FontSize(23),
                     fontWeight: FontWeight.bold),
                 "p": Style(
-                    color: Colors.grey[200],
+                    color: Colors.grey[800],
                     fontSize: FontSize(18),
                     textAlign: TextAlign.justify),
                 "h4": Style(
                   color: Colors.red,
                   fontSize: FontSize(18),
                 ),
-                "table": Style(color: Colors.white70),
-                "td": Style(color: Colors.white70),
-                "tr": Style(color: Colors.white70),
-                "tbody": Style(color: Colors.white70),
+                "table": Style(color: Colors.black),
+                "td": Style(color: Colors.black),
+                "tr": Style(color: Colors.black),
+                "tbody": Style(color: Colors.black),
               },
             ),
           )),
