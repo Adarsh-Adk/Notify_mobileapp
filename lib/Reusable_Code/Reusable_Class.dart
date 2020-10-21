@@ -11,11 +11,9 @@ import 'package:notify_categories/Components/DefaultDrawer.dart';
 
 class ReusableClass extends StatelessWidget {
 
-   String url;
+   final String url;
 
-  ReusableClass({ this.url}){
-
-  }
+  ReusableClass({ this.url});
    @override
    Widget build(BuildContext context) {
      return Scaffold(

@@ -9,6 +9,8 @@ import 'package:extended_image/extended_image.dart';
 import 'package:notify_categories/Components/DefaultAppBar.dart';
 import 'package:notify_categories/Components/DefaultDrawer.dart';
 
+import '../main.dart';
+
 
 class FrontPageBody extends StatefulWidget {
   @override
@@ -20,95 +22,93 @@ class _FrontPageBodyState extends State<FrontPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          child: FutureBuilder(
-            future: fetchWPposts(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Container(
-                  height: MediaQuery.of(context).size.height - 158,
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.white,
-                  child: ListView.builder(
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        Map wppost = snapshot.data[index];
-                        var imageurl = wppost['jetpack_featured_media_url'];
-                        return GestureDetector(
-                          onTap: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SecondRoute(
-                                      wppost['content']['rendered']),
-                                ));},
-                          child: Padding(
-                            padding: const EdgeInsets.only(left:7.0,right:7.0,top: 7,bottom: 7),
-                            child: Card(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                              color: Colors.white,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,),),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 7, right: 7, top: 2),
-                                    child: Text(
-                                      parse(
-                                        (wppost['title']['rendered'])
-                                            .toString(),
-                                      ).documentElement.text,
-                                      style: TextStyle(
-                                          fontSize: 23,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black),
-                                    ),
+        FutureBuilder(
+          future: fetchWPposts(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Container(
+                height: MediaQuery.of(context).size.height-80,
+                color: Colors.white,
+                child: ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      Map wppost = snapshot.data[index];
+                      var imageurl = wppost['jetpack_featured_media_url'];
+                      return GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SecondRoute(
+                                    wppost['content']['rendered']),
+                              ));},
+                        child: Padding(
+                          padding: const EdgeInsets.only(left:7.0,right:7.0,top: 7,bottom: 7),
+                          child: Card(
+                            elevation: 10,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                            color: Colors.white,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,),),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 7, right: 7, top: 2),
+                                  child: Text(
+                                    parse(
+                                      (wppost['title']['rendered'])
+                                          .toString(),
+                                    ).documentElement.text,
+                                    style: TextStyle(
+                                        fontSize: 23,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 7, right: 7, top: 5),
-                                    child: Text(
-                                      parse(
-                                        (wppost['excerpt']['rendered'])
-                                            .toString(),
-                                      ).documentElement.text,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.justify,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 7, right: 7, top: 5),
+                                  child: Text(
+                                    parse(
+                                      (wppost['excerpt']['rendered'])
+                                          .toString(),
+                                    ).documentElement.text,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
                                     ),
+                                    textAlign: TextAlign.justify,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                        );
-                      }),
-                );
-              }
-              return Container(
-                  height: MediaQuery.of(context).size.height - 158,
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.grey[200],
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ));
-            },
-          ),
+                        ),
+                      );
+                    }),
+              );
+            }
+            return Container(
+                height: MediaQuery.of(context).size.height-80,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.grey[200],
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ));
+          },
         ),
       ],
     );
   }
 }
-var pageNumber = 1;
+ int pagenumber=pageNumber;
 
 Future<List> fetchWPposts() async {
   final response = await http.get(
-      "https://notifytech.in/wp-json/wp/v2/posts?page=$pageNumber",
+      // "https://notifytech.in/wp-json/wp/v2/posts?page=$pagenumber",
+      "https://notifytech.in/wp-json/wp/v2/posts?per_page=40",
       headers: {"accept": "application/json"});
   var convertDatatoJson = jsonDecode(response.body);
   return convertDatatoJson;

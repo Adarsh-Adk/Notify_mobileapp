@@ -53,7 +53,7 @@ class _State extends State<SocialMedia> {
           ),
         ),
       ),
-    );;
+    );
   }
 }
 
