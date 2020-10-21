@@ -52,7 +52,8 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,),),
+                                ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,cacheHeight: 280,cacheWidth: 400,
+                                   ),),
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       left: 7, right: 7, top: 2),
