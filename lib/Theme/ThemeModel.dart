@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notify_categories/Theme/CustomTheme.dart';
+import 'package:notify/Theme/CustomTheme.dart';
 enum ThemeType { Light, Dark }
 
 class ThemeModel extends ChangeNotifier {

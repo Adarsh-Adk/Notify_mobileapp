@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notify_categories/Components/DefaultAppBar.dart';
+import 'package:notify/Components/DefaultAppBar.dart';
 import 'file:///C:/Users/GHOST/AndroidStudioProjects/notify_categories/lib/Components/DefaultDrawer.dart';
-import 'package:notify_categories/categories/categories_list.dart';
+import 'package:notify/categories/categories_list.dart';
 
 class Categories extends StatelessWidget {
   @override

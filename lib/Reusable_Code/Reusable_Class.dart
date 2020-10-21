@@ -6,8 +6,8 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:notify_categories/Components/DefaultAppBar.dart';
-import 'package:notify_categories/Components/DefaultDrawer.dart';
+import 'package:notify/Components/DefaultAppBar.dart';
+import 'package:notify/Components/DefaultDrawer.dart';
 
 class ReusableClass extends StatelessWidget {
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notify_categories/Pages/AboutUs.dart';
-import 'package:notify_categories/Pages/SocialMedia.dart';
-import 'package:notify_categories/Theme/ThemeModel.dart';
+import 'package:notify/Pages/AboutUs.dart';
+import 'package:notify/Pages/SocialMedia.dart';
+import 'package:notify/Theme/ThemeModel.dart';
 import 'package:provider/provider.dart';
 
 import '../categories/Categories_Home.dart';

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:notify_categories/CategoryPages/Apps.dart';
-import 'package:notify_categories/CategoryPages/Consoles.dart';
-import 'package:notify_categories/CategoryPages/Explained.dart';
-import 'package:notify_categories/CategoryPages/HowTo.dart';
-import 'package:notify_categories/CategoryPages/Laptops.dart';
-import 'package:notify_categories/CategoryPages/Peripherals.dart';
-import 'package:notify_categories/CategoryPages/Phones.dart';
-import 'package:notify_categories/CategoryPages/Processors.dart';
-import 'package:notify_categories/CategoryPages/Tabs.dart';
-import 'package:notify_categories/CategoryPages/Telecom.dart';
+import 'package:notify/CategoryPages/Apps.dart';
+import 'package:notify/CategoryPages/Consoles.dart';
+import 'package:notify/CategoryPages/Explained.dart';
+import 'package:notify/CategoryPages/HowTo.dart';
+import 'package:notify/CategoryPages/Laptops.dart';
+import 'package:notify/CategoryPages/Peripherals.dart';
+import 'package:notify/CategoryPages/Phones.dart';
+import 'package:notify/CategoryPages/Processors.dart';
+import 'package:notify/CategoryPages/Tabs.dart';
+import 'package:notify/CategoryPages/Telecom.dart';
 
 class CategoriesList extends StatelessWidget {
   @override

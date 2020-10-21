@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notify_categories/Components/DefaultAppBar.dart';
-import 'package:notify_categories/Components/DefaultDrawer.dart';
+import 'package:notify/Components/DefaultAppBar.dart';
+import 'package:notify/Components/DefaultDrawer.dart';
 
 final String theText =" \"We are bunch of tech enthusiasts and and our "
     "mission is to bring latest technology news to the public and make common people "

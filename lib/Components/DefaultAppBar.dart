@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notify_categories/Components/DefaultDrawer.dart';
+import 'package:notify/Components/DefaultDrawer.dart';
 
 class DefaultAppBar extends AppBar{
   DefaultAppBar({Key key})

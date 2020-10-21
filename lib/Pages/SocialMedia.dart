@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notify_categories/Components/DefaultAppBar.dart';
-import 'package:notify_categories/Components/DefaultDrawer.dart';
+import 'package:notify/Components/DefaultAppBar.dart';
+import 'package:notify/Components/DefaultDrawer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 

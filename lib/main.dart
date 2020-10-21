@@ -38,12 +38,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:notify_categories/Components/DefaultAppBar.dart';
-import 'package:simple_gesture_detector/simple_gesture_detector.dart';
+import 'package:notify/Components/DefaultAppBar.dart';
 import 'file:///C:/Users/GHOST/AndroidStudioProjects/notify_categories/lib/Components/DefaultDrawer.dart';
 import 'file:///C:/Users/GHOST/AndroidStudioProjects/notify_categories/lib/home/FrontPageBody.dart';
-import 'home/nextpage.dart';
+
 
  int pageNumber=1;
 
