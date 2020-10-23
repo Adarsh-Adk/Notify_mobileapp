@@ -11,8 +11,11 @@ import 'file:///C:/Users/GHOST/AndroidStudioProjects/notify_categories/lib/home/
 void main() => runApp(NotifyApp());
 
 class NotifyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
 
         title: "Notify", debugShowCheckedModeBanner: false, home: HomePage());
@@ -20,12 +23,18 @@ class NotifyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    fetchWPposts();
+  }
 
   @override
   Widget build(BuildContext context) {

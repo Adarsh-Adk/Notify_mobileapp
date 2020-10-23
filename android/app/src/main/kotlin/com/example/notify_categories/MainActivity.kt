@@ -1,4 +1,4 @@
-package com.example.notify_categories
+package com.notify.news
 
 import io.flutter.embedding.android.FlutterActivity
 
