@@ -150,7 +150,6 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:notify/Components/DefaultAppBar.dart';
 import 'package:notify/Components/DefaultDrawer.dart';
-import 'package:notify/Data/Response.dart';
 import 'package:notify/home/ApiServiceProvider.dart';
 var api=ApiServiceProvider();
 
