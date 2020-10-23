@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:notify/Components/DefaultAppBar.dart';
 import 'file:///C:/Users/GHOST/AndroidStudioProjects/notify_categories/lib/Components/DefaultDrawer.dart';
 import 'file:///C:/Users/GHOST/AndroidStudioProjects/notify_categories/lib/home/FrontPageBody.dart';
+import 'package:notify/home/ApiServiceProvider.dart';
 
 
  int pageNumber=1;
+ var api=ApiServiceProvider();
 
 
 void main() => runApp(NotifyApp());
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    fetchWPposts();
+    api.fetchWPposts();
   }
 
   @override

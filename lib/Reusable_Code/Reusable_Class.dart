@@ -8,6 +8,10 @@ import 'dart:convert';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:notify/Components/DefaultAppBar.dart';
 import 'package:notify/Components/DefaultDrawer.dart';
+import 'package:notify/Reusable_Code/ReusableApi.dart';
+import 'package:notify/home/ApiServiceProvider.dart';
+
+var api=ReusableApi();
 
 class ReusableClass extends StatelessWidget {
 
@@ -23,7 +27,7 @@ class ReusableClass extends StatelessWidget {
          children: [
            Container(
              child: FutureBuilder(
-               future: fetchPhones(url),
+               future: api.fetchPhones(url),
                builder: (context, snapshot) {
                  if (snapshot.hasData) {
                    return Container(
@@ -110,11 +114,7 @@ class ReusableClass extends StatelessWidget {
 }
 
 
-Future<List> fetchPhones(url)async{
-  final response=await http.get(url,headers: {"accept": "application/json"});
-  var convertDataToJson=jsonDecode(response.body);
-  return convertDataToJson;
-}
+
 
 class SecondRoute extends StatelessWidget {
   final String _text;
