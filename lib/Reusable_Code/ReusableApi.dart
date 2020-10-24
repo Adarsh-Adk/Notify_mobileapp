@@ -16,7 +16,7 @@ import 'package:path_provider/path_provider.dart';
 
 class ReusableApi{
   Future<List> fetchPhones(url)async{
-    String fileName="posts.json";
+    String fileName="$url.json";
 
     var diretory= await getTemporaryDirectory();
     File file= File(diretory.path+"/"+fileName);
@@ -30,9 +30,9 @@ class ReusableApi{
     else{
       print("loading from network");
       final response=await http.get(url,headers: {"accept": "application/json"});
-      var jsonResponse=response.body;
-      var decodedJson=json.decode(jsonResponse);
-      file.writeAsStringSync(jsonResponse,flush: true,mode: FileMode.write);
+      var pageResponse=response.body;
+      var decodedJson=json.decode(pageResponse);
+      // file.writeAsStringSync(pageResponse,flush: true,mode: FileMode.write);
       return decodedJson;
     }
   }
