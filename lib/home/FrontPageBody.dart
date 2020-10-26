@@ -1,3 +1,4 @@
+//
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_html/style.dart';
@@ -7,7 +8,7 @@
 // import 'package:notify/Components/DefaultAppBar.dart';
 // import 'package:notify/Components/DefaultDrawer.dart';
 // import 'package:notify/home/ApiServiceProvider.dart';
-//  var api=ApiServiceProvider();
+// var api=ApiServiceProvider();
 //
 // class FrontPageBody extends StatefulWidget {
 //   @override
@@ -50,7 +51,7 @@
 //                               crossAxisAlignment: CrossAxisAlignment.start,
 //                               children: <Widget>[
 //                                 ClipRRect(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:Radius.circular(20)),child: ExtendedImage.network(imageurl,cache: true,enableMemoryCache: true,cacheHeight: 300,cacheWidth: MediaQuery.of(context).size.width.toInt(),
-//                                    ),),
+//                                 ),),
 //                                 Padding(
 //                                   padding: const EdgeInsets.only(
 //                                       left: 7, right: 7, top: 2),
@@ -142,6 +143,9 @@
 //     );
 //   }
 // }
+//
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/style.dart';
@@ -169,7 +173,6 @@ class _FrontPageBodyState extends State<FrontPageBody> {
             if (snapshot.hasData) {
               return Container(
                 height: MediaQuery.of(context).size.height-80,
-                color: Colors.white,
                 child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -189,7 +192,7 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                             elevation: 10,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                            color: Colors.white,
+
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
@@ -206,7 +209,7 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                                     style: TextStyle(
                                         fontSize: 23,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.black),
+                                       ),
                                   ),
                                 ),
                                 Padding(
@@ -218,7 +221,6 @@ class _FrontPageBodyState extends State<FrontPageBody> {
                                           .toString(),
                                     ).documentElement.text,
                                     style: TextStyle(
-                                      color: Colors.black,
                                       fontSize: 15,
                                     ),
                                     textAlign: TextAlign.justify,
@@ -235,7 +237,6 @@ class _FrontPageBodyState extends State<FrontPageBody> {
             return Container(
                 height: MediaQuery.of(context).size.height-80,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.grey[200],
                 child: Center(
                   child: CircularProgressIndicator(),
                 ));
@@ -257,33 +258,41 @@ class SecondRoute extends StatelessWidget {
       drawer: DefaultDrawer(),
       appBar: DefaultAppBar(),
       body: Container(
-          color: Colors.white,
           padding: EdgeInsets.only(left: 10,right: 10),
           child: SingleChildScrollView(
             child: Html(
               data: _text,
               style: {
-                "html": Style(backgroundColor: Colors.white),
+                // "html": Style(backgroundColor: Colors.white),
                 "h3": Style(
-                    color: Colors.grey[800],
+                    // color: Colors.grey[800],
                     fontSize: FontSize(23),
                     fontWeight: FontWeight.bold),
                 "p": Style(
-                    color: Colors.grey[800],
+                    // color: Colors.grey[800],
                     fontSize: FontSize(18),
                     textAlign: TextAlign.justify),
                 "h4": Style(
                   color: Colors.red,
                   fontSize: FontSize(18),
                 ),
-                "table": Style(color: Colors.black),
-                "td": Style(color: Colors.black),
-                "tr": Style(color: Colors.black),
-                "tbody": Style(color: Colors.black),
+                "table": Style(
+                    // color: Colors.black
+                ),
+                "td": Style(
+                    // color: Colors.black
+                ),
+                "tr": Style(
+                    // color: Colors.black
+                ),
+                "tbody": Style(
+                    // color: Colors.black
+                ),
               },
             ),
           )),
     );
   }
 }
+
 

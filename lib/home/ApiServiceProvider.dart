@@ -19,16 +19,19 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
 import 'package:path_provider/path_provider.dart';
 
+
+
+
 class ApiServiceProvider{
   Future<List> fetchWPposts()async{
-
     String fileName="posts.json";
-
     var diretory= await getTemporaryDirectory();
     File file= File(diretory.path+"/"+fileName);
+    print(file.path);
     if(file.existsSync()){
       print("loading from cache");
       var jsonData=file.readAsStringSync();
@@ -48,4 +51,5 @@ class ApiServiceProvider{
 
 
   }
+
 }
